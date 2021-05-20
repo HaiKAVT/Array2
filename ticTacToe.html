@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <h1> Caro Game Simple </h1>
+    <input type="button" value="O" name="player1" onclick="changeValue1()">
+    <input type="button" value="X" name="player2" onclick="changeValue2()">
+    <p id="caroGame" />
+<script>
+    let b = document.getElementById('caroGame');
+    let board = [];
+    let data = " ";
+    for(let i=0; i<6; i++){
+        board[i] = new Array('.','.','.','.','.','.');
+    }
+    for(let i = 0; i < 6; i++){
+        data += "<br/>";
+        for(let j = 0 ; j < 6 ; j++){
+            data += board[j][j] + '&nbsp&nbsp'
+        }
+    }
+    data += '<br/><br/><input type="button" value="o" name="player1" onclick="changeValue1()">'
+    data += '<br/><br/><input type="button" value="x" name="player2" onclick="changeValue2()">'
+    b.innerHTML = '<hr>' + data;
+    function changeValue1(){
+        let positionX = prompt("nhập vào X : ");
+        let positionY = prompt("nhập vào y : ");
+        data = '';
+        board[positionX][positionY] = 'O'
+
+        for(let i =0 ; i<6; i++){
+            data += '<br/>';
+            for(let j=0 ; j<6; j++){
+                data += board[i][j] + '&nbsp&nbsp&nbsp&nbsp';
+            }
+        }
+        data += '<br/><br/><input type="button" value="x" name="player2" onclick="changeValue2()">'
+        data += '<br/><br/><input type="button" value="O" name="player1" onclick="changeValue1()">'
+        b.innerHTML = '<hr>' + data;
+        if(board[0][0] =='O' &&board[0][1]=='O' &&board[0][2] =='O'){
+           document.write('You Win!!!')
+        }
+    }
+    function changeValue2(){
+        let positionX = prompt("nhập vào X : ");
+        let positionY = prompt("nhập vào y : ");
+        data = '';
+        board[positionX][positionY] = 'x'
+
+        for(let i =0 ; i<6; i++){
+            data += '<br/>';
+            for(let j=0 ; j<6; j++){
+                data += board[i][j] + '&nbsp&nbsp&nbsp&nbsp';
+            }
+        }
+        data += '<br/><br/><input type="button" value="x" name="player2" onclick="changeValue2()">'
+        data += '<br/><br/><input type="button" value="O" name="player1" onclick="changeValue1()">'
+        b.innerHTML = '<hr>' + data;
+        if(board[0][0] =='x' &&board[0][1]=='x' &&board[0][2] =='x'){
+            document.write('You Win!!!')
+        }
+
+    }
+</script>
+</body>
+</html>
