@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng vui Faking Textarea on Typing</title>
+</head>
+<body>
+<h1 style="margin-inline: 30%">Type anthing slowly</h1>
+<textarea id="text" style="margin-inline: 30% ; width: 300px; height: 120px" onkeydown="nhapVao()"> </textarea>
+<script>
+    var a = ['T', 'ô', 'i', ' ', 'l', 'à', ' ', 'm', 'ộ', 't', ' ', 't', 'h', 'i', 'ê', 'n', ' ', 't', 'à', 'i', '!'];
+    let n = '';
+
+    function nhapVao() {
+        let t = document.getElementById('text').value;
+        if (t.length > 0) {
+            for (let i = 0; i < t.length; i++) {
+                n = n + a[i];
+                if (i == 21) {
+                    document.getElementById('text').value = ' ';
+                    n = '';
+                }
+            }
+        }
+        document.getElementById('text').value = n;
+        n = '';
+        setTimeout('nhapVao()', 1);
+    }
+</script>
+</body>
+</html>
