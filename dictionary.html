@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dictionary </title>
+</head>
+<body>
+<h1> Dictionary online - Hãy nhập từ cần tìm kiếm </h1>
+<input type="text" id="diction" />
+<button value="dict" onclick="search()"   >search</button>
+<div id="in"></div>
+<script>
+    var tiengAnh = ["Dog" , "Cat" , "Yellow"];
+    var tiengViet = ["Chó" , "Mèo" , "Màu Vàng"];
+   function search(){
+       var tuCanTim = document.getElementById('diction').value ;
+       for(let i = 0 ; i<3 ; i++){
+           if(tuCanTim == tiengAnh[i]){
+               document.getElementById("in").innerHTML = tiengViet[i];
+               break;
+           } else
+               document.getElementById("in").innerHTML = "Không tồn tại";
+       }
+
+   }
+
+
+
+</script>
+
+</body>
+</html>
