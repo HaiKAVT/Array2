@@ -6,16 +6,46 @@
 </head>
 <body>
 <script>
-  var a = [2,3,24,11,5,26,31,3,19,13];
-  let dem =0;
-  for(let i =0 ; i <a.length; i++){
+    var a = [2, 3, 24, 11, 5, 26, 31, 3, 19, 13];
+    //in ra các phần tử lớn hơn 10 và đếm có bao nhiêu phần tử
+    let dem = 0;
+     for (let i = 0; i < a.length; i++) {
 
-    if(a[i]>=10){
-      document.write(a[i] + " ");
-      dem++;
+        if (a[i] >= 10) {
+            document.write(a[i] + " ");
+            dem++;
+        }
+     }
+    document.write('<br/>' + 'có ' + dem + ' phần tử lơn hơn 10');
+    //in ra giá trị lớn nhất trong mảng và thứ tự của nó
+    let max = a[0];
+    let index = 0;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] > max) {
+            max = a[i];
+            index = i;
+        }
     }
-
-  } document.write( '<br/>' + 'có ' + dem + ' phần tử lơn hơn 10' );
+    document.write('<br/>' + 'giá trị phần tử lớn nhất trong mảng : ' + max);
+    document.write('<br/>' + 'phần tử thứ : ' + index);
+    //tính tổng các phần tử và tính trung bình
+    let trungBinh = 0;
+    let sum = 0;
+    let soPhanTu =0;
+    for(let i =0; i<a.length; i++){
+       sum = sum + a[i]
+        soPhanTu++;
+    }
+    trungBinh = sum/soPhanTu;
+    document.write('<br/>' + 'tổng các phần tử trong màng là : ' + sum);
+    document.write('<br/>' + 'tổng TB các phần tử trong màng là : ' + trungBinh);
+    //đảo ngược các phần tử trong mảng
+    let m;
+    for(let i = 0 ; i < a.length-i; i++){
+        m = a[i];
+        a[i] = a[(a.length -1)-i];
+        a[a.length -1 - i] = m;
+    } document.write('<br/>'+a);
 </script>
 
 </body>
